@@ -36,8 +36,9 @@ Fixed alpha blending in this terminal image viewer (300+ stars); merged upstream
 
 Spec first, then tests that try to break it, then measurements saved next to the code.
 
-I work with AI coding agents every day. In tundra, sluice and slotstream I chose the problem and the constraints,
-and Claude Code drafted the spec and wrote the code. Each repo's `docs/ai-workflow.md` shows the guardrails and
-checks that kept that work checkable.
+I build with AI coding agents. tundra, sluice and slotstream each start from a written spec: the scope, what's
+left out, and the experiments that settle each design question. Claude Code implements it in small steps, and a
+step is done when its tests pass, not when the code looks right. Each repo's `docs/ai-workflow.md` shows the
+guardrails and the bugs they caught.
 
 [LinkedIn](https://www.linkedin.com/in/efimpolevoi)
