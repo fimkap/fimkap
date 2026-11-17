@@ -10,10 +10,16 @@ Horizon virtual channels.
 ## Projects
 
 **[tundra](https://github.com/fimkap/tundra)** · C++23  
-A user-space TCP/IP stack, from Ethernet to TCP with NewReno loss recovery, running on a Linux TAP device against
-the real Linux stack. Transfers in both directions match their SHA-256 byte for byte. Its fuzzers ran 38.6 million
-parser inputs and 598 thousand stack programs clean under ASan and UBSan. The NEON checksum runs at 50–66 GB/s,
-up from 7, once GCC no longer fuses its two loads into one `LDP`.
+A user-space TCP/IP stack, from Ethernet to TCP with NewReno loss recovery, running on a Linux TAP device
+against the real Linux stack. Transfers in both directions match their SHA-256 byte for byte. Every byte a
+network stack parses comes from outside, so a read past the end of a buffer can become a security hole. Such
+bugs rarely crash on their own, so the tests and fuzzers run with two compiler options that add checks to the
+program and stop it the moment a bug happens. ASan (AddressSanitizer) catches any read or write outside valid
+memory. UBSan (UndefinedBehaviorSanitizer) catches undefined behaviour, such as a signed overflow, which can
+pass in testing and break once the compiler optimises the code. Fuzzers generated 38.6 million inputs for the
+parsers and 598 thousand runs of packets, timer events and API calls against a live stack, and both checks
+stayed silent; an earlier run caught one real bug, since fixed. The NEON checksum runs at 50–66 GB/s, up from 7,
+once GCC no longer fuses its two loads into one `LDP`.
 
 **[sluice](https://github.com/fimkap/sluice)** · Go  
 A Kafka-style broker built to measure the trade-offs log-based systems make. Group commit kept every write on disk
