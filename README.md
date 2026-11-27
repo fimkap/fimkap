@@ -1,11 +1,5 @@
-I design systems and build them: real-time and distributed backends, network protocols, and the data paths
-between them.
-
-Most recently I was the founding engineer at Lingacom. I authored the architecture of the real-time monitoring
-and control system behind cosmic-ray muon imaging installations, designed its binary protocol, and led it to
-production. Before that I worked on attribution infrastructure handling over 500,000 requests per second on AWS
-at Singular. At ControlUp I built multithreaded C++ libraries that carry monitoring data over Citrix and VMware
-Horizon virtual channels.
+Senior engineer and hands-on architect, at home in both 0 → 1 builds and systems at scale.
+Most recently I was the founding engineer on a real-time platform that controls hardware in the field, and I owned it end to end through to production: event-driven ingestion, live telemetry and the operator console. Before that I worked on a multi-tenant, event-driven attribution pipeline on AWS: 64 shards, 500k+ rps.
 
 ## Projects
 
@@ -38,13 +32,5 @@ broken in five ways, so the loader has its own connection layer: 37.3 s and 818 
 **[termpix](https://github.com/hopey-dishwasher/termpix/pull/15)** · Rust  
 Fixed alpha blending in this terminal image viewer (300+ stars); merged upstream.
 
-## How I work
-
-Spec first, then tests that try to break it, then measurements saved next to the code.
-
-I build with AI coding agents. tundra, sluice and slotstream each start from a written spec: the scope, what's
-left out, and the experiments that settle each design question. Claude Code implements it in small steps, and a
-step is done when its tests pass, not when the code looks right. Each repo's `docs/ai-workflow.md` shows the
-guardrails and the bugs they caught.
 
 [LinkedIn](https://www.linkedin.com/in/efimpolevoi)
